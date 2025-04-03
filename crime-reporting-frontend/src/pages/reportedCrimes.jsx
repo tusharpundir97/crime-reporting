@@ -6,8 +6,9 @@ const [crimes, setCrimes] = useState([]);
 const token = localStorage.getItem("token");
 
 useEffect(()=>{
+      const API_URL = "https://crime-reporting-backend.onrender.com";
       try {const fetchCrimes = async () => {
-            const response = await fetch("http://localhost:5000/api/crimes/user", {
+            const response = await fetch(`${API_URL}/api/crimes/user`, {
                   headers: {Authorization: `Bearer ${token}`},
             });
             if (!response.ok) {

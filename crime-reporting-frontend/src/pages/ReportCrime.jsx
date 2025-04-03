@@ -12,10 +12,10 @@ const ReportCrime = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    const API_URL = "https://crime-reporting-backend.onrender.com";
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:5000/api/crimes", {
+    const response = await fetch(`${API_URL}/api/crimes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

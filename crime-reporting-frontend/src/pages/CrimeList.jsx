@@ -45,7 +45,8 @@ const CrimeList = () => {
 
   const updateCrimeStatus = async (crimeId, newStatus) => {
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:5000/api/crimes/${crimeId}`,{
+    const API_URL = "https://crime-reporting-backend.onrender.com";
+    const response = await fetch(`${API_URL}/api/crimes/${crimeId}`,{
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
