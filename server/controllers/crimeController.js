@@ -19,6 +19,7 @@ export const createCrimeReport = async(req, res)=>{
 
            await newCrime.save();
            const policeOfficers = await User.find({role: "police"});
+           console.log(crime.reportedBy.email)
 
       //      notify police officers
            policeOfficers.forEach((officer)=>{
@@ -75,7 +76,8 @@ export const updateCrimeStatus = async (req, res) => {
 
             crime.status = status;
             await crime.save();
-
+            //  const recipientEmail = crime.reportedBy.email;
+            //  console.log(recipientEmail);
             //Notify the user
             sendEmail(
                   crime.reportedBy.email,
