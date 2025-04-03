@@ -76,14 +76,14 @@ export const updateCrimeStatus = async (req, res) => {
 
             crime.status = status;
             await crime.save();
-             const recipientEmail = crime.reportedBy.email;
-             console.log(recipientEmail);
+            //  const recipientEmail = crime.reportedBy.email;
+            //  console.log(recipientEmail);
             //Notify the user
-            sendEmail(
-                  crime.reportedBy.email,
-                  "Crime Status Updated",
-                  `Your crime report "${crime.title}" is now marked as "${status}".`
-            )
+            // sendEmail(
+            //       crime.reportedBy.email,
+            //       "Crime Status Updated",
+            //       `Your crime report "${crime.title}" is now marked as "${status}".`
+            // )
             res.status(200).json({message: "Crime Status updated", crime})
       } catch (error) {
             console.log(error);
