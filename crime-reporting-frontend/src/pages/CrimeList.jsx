@@ -20,7 +20,6 @@ const CrimeList = () => {
             Authorization: `Bearer ${token}` }
         });
 
-        console.log(response);
         
         if (!response.ok) {
           const errorText = await response.text();
