@@ -69,7 +69,6 @@ const CrimeList = () => {
 
   
 
-  // if (loading) return <p className="flex justify-center align-middle">Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
