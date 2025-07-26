@@ -13,7 +13,7 @@ const CrimeList = () => {
           throw new Error("No authentication token found. Please log in.")
         }
         setLoading(true);
-        const response = await fetch("https://crime-reporting-backend.onrender.com", {
+        const response = await fetch("https://crime-reporting-backend.onrender.com/api/crimes", {
           method: "GET",
           headers: {
             
