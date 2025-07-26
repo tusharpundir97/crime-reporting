@@ -1,18 +1,26 @@
 import Crime from "../models/Crime.js";
 import { sendEmail } from "../utils/emailService.js";
 import User from "../models/User.js";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 // create a crime report
 export const createCrimeReport = async(req, res)=>{
       try {
-            console.log("Received :", req.body)
            const {title, description, location} = req.body;
             
-            
+            const imageLocalPath = req.files?.image[0]?.path;
+            if(!imageLocalPath){
+                  res.status(404).json({message: "Please Upload an Image"})
+            }
+            const image = await uploadOnCloudinary(imageLocalPath);
+            if(!image){
+                  res.status(404).json({message: "Image is required"})
+            }
            const newCrime= new Crime({
             title,
             description,
             location,
+            image:image.url,
             reportedBy: req.user.id,
             status: "Pending"
            });
@@ -86,8 +94,6 @@ export const updateCrimeStatus = async (req, res) => {
             // )
             res.status(200).json({message: "Crime Status updated", crime})
       } catch (error) {
-            console.log(error);
-            
             res.status(500).json({message: "Error updating  crime status"})
       }
       
