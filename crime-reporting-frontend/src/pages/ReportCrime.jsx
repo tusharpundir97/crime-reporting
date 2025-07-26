@@ -16,8 +16,7 @@ const ReportCrime = () => {
   // };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const API_URL = "https://crime-reporting-backend.onrender.com";
-    const API_URL = "http://localhost:5000";
+    const API_URL = "https://crime-reporting-backend.onrender.com";
     const token = localStorage.getItem("token");
     const data = new FormData();
     data.append('title', formData.title);

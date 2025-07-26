@@ -13,8 +13,7 @@ const CrimeList = () => {
           throw new Error("No authentication token found. Please log in.")
         }
         setLoading(true);
-        // const response = await fetch("https://crime-reporting-backend.onrender.com", {
-        const response = await fetch("http://localhost:5000/api/crimes", {
+        const response = await fetch("https://crime-reporting-backend.onrender.com", {
           method: "GET",
           headers: {
             
@@ -48,8 +47,8 @@ const CrimeList = () => {
 
   const updateCrimeStatus = async (crimeId, newStatus) => {
     const token = localStorage.getItem("token");
-    // const API_URL = "https://crime-reporting-backend.onrender.com";
-    const API_URL = "http://localhost:5000";
+    const API_URL = "https://crime-reporting-backend.onrender.com";
+    
     const response = await fetch(`${API_URL}/api/crimes/${crimeId}`,{
       method: "PUT",
       headers: {

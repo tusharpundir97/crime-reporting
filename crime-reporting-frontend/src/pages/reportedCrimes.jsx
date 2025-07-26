@@ -7,8 +7,7 @@ const [loading, setLoading] = useState(true);
 const token = localStorage.getItem("token");
 
 useEffect(()=>{
-      const API_URL = "http://localhost:5000";
-      // const API_URL = "https://crime-reporting-backend.onrender.com";
+      const API_URL = "https://crime-reporting-backend.onrender.com";
       try {
             setLoading(true);
             const fetchCrimes = async () => {
